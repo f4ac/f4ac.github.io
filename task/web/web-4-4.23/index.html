@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气预报</title>
+	<style type="text/css">
+	/*清除格式*/
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		/*容器外背景*/
+		background: #000000;
+		/*字体颜色*/
+		color: #d5e6e8;
+	}
+	#container{
+		position: relative;
+		width: 1200px;
+		height: 100%;
+		/*居中*/
+		margin: 0 auto;
+		/*设置背景*/
+   	 	background: #71addf;
+		background: -webkit-linear-gradient(#0b6abd,#71addf);  
+   	 	background: -moz-linear-gradient(#0b6abd,#71addf); 
+	}
+	/*字体大小*/
+	p{
+		font-size: 12px;
+	}
+	#top{
+		width: 100%;
+		padding-top: 15px;
+		text-align: center;
+		line-height: 22px;
+		margin-bottom: 30px;
+	}
+	#top img{
+		width: 100px;
+		margin: 40px;
+	}
+	#bottom{
+		width: 1080px;
+		height: 350px;
+		margin: 0 60px;
+	}
+	#bottom img{
+		width: 50px;
+		margin: 15px;
+	}
+	/*下面三个盒子样式*/
+	#bottom div:not(.line){
+		width: 359px;
+		height: 300px;
+		float: left;
+		text-align: center;
+	}
+	/*分隔线*/
+	.line{
+		width: 0px;
+		height: 150px;
+		border-left: 1px solid #6ea9eb;
+		float: left;
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="top">
+			<p style="font-size: 18px;">邓州市</p>
+			<img src="images/days/duoyun.png">
+			<p style="font-size: 30px;color: #fffef2;">24 ~ 7℃</p>
+			<p>多云</p>
+			<p>西南风3级</p>
+			<p>实时温度：22℃，空气指数 优</p>
+		</div>
+		<div id="bottom">
+			<div>
+				<p>周五</p>
+				<img src="images/days/duoyun.png">
+				<p>24 ~ 9℃</p>
+				<p>多云</p>
+				<p>西南风 4 级</p>
+			</div>
+			<div class="line"></div>
+			<div>
+				<p>周六</p>
+				<img src="images/days/duoyun.png">
+				<p>28 ~ 13℃</p>
+				<p>多云</p>
+				<p>西南风 4 级</p>
+			</div>
+			<div class="line"></div>
+			<div>
+				<p>周日</p>
+				<img src="images/days/qing.png">
+				<p>27 ~ 15℃</p>
+				<p>晴</p>
+				<p>西南风 4 级</p>
+			</div>
+		</div>
+	</div>
+	<script>
+	
+	</script>
+</body>
+</html>
