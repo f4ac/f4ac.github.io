@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>天气预报</title>
+	<style type="text/css">
+	/*清除格式*/
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		/*容器外背景*/
+		background: #000000;
+		/*字体颜色*/
+		color: #d5e6e8;
+	}
+	#container{
+		position: relative;
+		width: 1200px;
+		height: 100%;
+		/*居中*/
+		margin: 0 auto;
+		/*设置背景*/
+   	 	background: #71addf;
+		background: -webkit-linear-gradient(#0b6abd,#71addf);  
+   	 	background: -moz-linear-gradient(#0b6abd,#71addf); 
+	}
+	/*字体大小*/
+	p{
+		font-size: 12px;
+	}
+	#top{
+		width: 100%;
+		padding-top: 15px;
+		text-align: center;
+		line-height: 22px;
+		margin-bottom: 30px;
+	}
+	#top img{
+		width: 100px;
+		margin: 40px;
+	}
+	#bottom{
+		width: 1080px;
+		height: 350px;
+		margin: 0 60px;
+	}
+	#bottom img{
+		width: 50px;
+		margin: 15px;
+	}
+	/*下面三个盒子样式*/
+	#bottom div:not(.line){
+		width: 359px;
+		height: 300px;
+		float: left;
+		text-align: center;
+	}
+	/*分隔线*/
+	.line{
+		width: 0px;
+		height: 150px;
+		border-left: 1px solid #6ea9eb;
+		float: left;
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="top">
+			<p class="area" style="font-size: 18px;"></p>
+			<img src="images/days/duoyun.png">
+			<p style="font-size: 30px;color: #fffef2;" class="fl nowday"></p>
+			<p>多云</p>
+			<p>西南风3级</p>
+			<p>实时温度：22℃，空气指数 优</p>
+		</div>
+		<div id="bottom">
+			<div>
+				<p>周五</p>
+				<img src="images/days/duoyun.png">
+				<p>24 ~ 9℃</p>
+				<p>多云</p>
+				<p>西南风 4 级</p>
+			</div>
+			<div class="line"></div>
+			<div>
+				<p>周六</p>
+				<img src="images/days/duoyun.png">
+				<p>28 ~ 13℃</p>
+				<p>多云</p>
+				<p>西南风 4 级</p>
+			</div>
+			<div class="line"></div>
+			<div>
+				<p>周日</p>
+				<img src="images/days/qing.png">
+				<p>27 ~ 15℃</p>
+				<p>晴</p>
+				<p>西南风 4 级</p>
+			</div>
+		</div>
+	</div>
+	  <script src="./js/jquery-3.4.1.min.js"></script>
+  <script src="./js/api.js"></script>
+
+  <script>
+
+    var city1;
+    var city2;
+
+    $.ajax({
+      // type: 'get',
+      url: 'https://apis.map.qq.com/ws/location/v1/ip',
+      data: {
+        key: 'XFMBZ-AZYCX-QVA43-7WDJZ-5EVBJ-X2B4K',
+        output: 'jsonp',
+        isAsync: true
+      },
+
+      dataType: 'jsonp',
+
+      success: function (data) {
+        // console.log('data ==>', data)
+        city1 = data.result.ad_info.city
+        city2 = data.result.ad_info.district
+ 
+        arr(city1,city2)
+      }
+    })
+
+    function arr(city,city2) {
+
+      city2 = city2 ? city2 : city;
+
+      //获取小时
+      var hours = new Date().getHours();
+
+      $('.area').text(city2);
+
+      var o = {
+        晴: './images/qing.png',
+        阴: './images/yin.png',
+        多云: './images/duoyun.png',
+        小雨: './images/xiaoyu.png',
+        中雨: './images/zhongyu.png',
+        大雨: './images/zhongyu.png',
+        阵雨: './images/zhenyu.png',
+        雷阵雨: './images/leizhenyu.png',
+        暴雨: './images/zhongyu.png'
+      }
+
+      api.ajax({
+        type: 'get',
+        url: 'https://api.heweather.net/s6/weather/hourly',
+        params: {
+          location: city,
+          key: '433495ee24874ed189c5d45cfaf2ef24'
+        },
+        isAsync: true,
+        success: function (d) {
+
+          $('.list').empty();
+          //获取天气里的时间
+          var dataHours = JSON.parse(d).HeWeather6[0].hourly;
+          console.log(dataHours)
+
+          console.log('d ==>', JSON.parse(d))
+
+          //获取当前气候
+          var climate = JSON.parse(d).HeWeather6[0].hourly[0].cond_txt;
+          $('.climate ').text(climate)
+
+          //获取温度
+          var tmp1 = JSON.parse(d).HeWeather6[0].hourly[0].tmp;
+          $('.area-text>h1').text(tmp1 + '°')
+
+          for (var i = 0; i < dataHours.length; i++) {
+            var a = (dataHours[i].time).slice(-5,-3) 
+            if(a < 9){
+              a = a.slice(-1);
+            }
+            var $li = $(`<li>
+              <div>${a}时</div>
+              <div class="climate-img">
+                <img class="auto-img" src="${o[dataHours[i].cond_txt]}">
+              </div>
+              <div> ${dataHours[i].tmp}° </div>
+            </li>`)
+
+
+            $('.list').append($li);
+
+          }
+
+        }
+      })
+
+      api.ajax({
+        type: 'get',
+        url: 'https://api.heweather.net/s6/weather/forecast',
+        params: {
+          location: city,
+          key: '433495ee24874ed189c5d45cfaf2ef24'
+        },
+        isAsync: true,
+        success: function (d) {
+          console.log('d ==>', JSON.parse(d))
+          $(".hebdomad").empty()
+
+          var heWeather = JSON.parse(d).HeWeather6[0].daily_forecast;
+
+          //获取当前最大温度
+          var max = JSON.parse(d).HeWeather6[0].daily_forecast[0].tmp_max;
+          $('.max').text(max);
+
+          //获取当前最小温度
+          var min = JSON.parse(d).HeWeather6[0].daily_forecast[0].tmp_min;
+          $('.min').text(min);
+
+          var date1 = JSON.parse(d).HeWeather6[0].daily_forecast[0].date;
+          var b = new Date(date1).getDay()
+
+          function day(qwq) {
+            var str = '';
+            switch (qwq) {
+              case 0:
+                str += "日";
+                break;
+              case 1:
+                str += "一";
+                break;
+              case 2:
+                str += "二";
+                break;
+              case 3:
+                str += "三";
+                break;
+              case 4:
+                str += "四";
+                break;
+              case 5:
+                str += "五";
+                break;
+              case 6:
+                str += "六";
+                break;
+            }
+            return str;
+          }
+
+
+
+          $(".nowday").text('星期' + day(b) + '');
+
+          for (var i = 0; i < heWeather.length; i++) {
+            var arr = new Date().getHours()
+            var date = JSON.parse(d).HeWeather6[0].daily_forecast[i].date;
+          
+
+            var a = new Date(date).getDay()
+
+            var a1 = day(a)
+
+            var $li1 = $(`<li class="clearfix num">
+              <div class="fl">星期${a1}</div>
+              <div class="climate-img fl a">
+                <img class="auto-img" src="${o[heWeather[i].cond_txt_d]}">
+              </div>
+              <div class="fr">
+                <div class="fl">${heWeather[i].tmp_max}</div>
+                <div class="fl today">${heWeather[i].tmp_min}</div>
+              </div>
+              </li>`)
+
+            $('.hebdomad').append($li1);
+          }
+        }
+      })
+    }
+
+    $('.nave').click(function () {
+
+      //获取输入框
+      var city = $(".city").val();
+
+      arr(city)
+    })
+
+  </script>
+</body>
+</html>
