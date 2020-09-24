@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web测试 4-9</title>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	/*设置背景颜色*/
+	body{
+		background-color: #f6f8fa;
+	}
+	/*容器宽度为1000px，水平居中*/
+	.container{
+		width: 800px;
+		margin: 0 auto;
+		background-color: #ffffff;
+	}
+	/*以下为导航栏 及 导航栏间距调整*/
+	#nav{
+		width: 100%;
+		height: 100px;
+		background-color: #ffffff;
+	}
+	/*列表格式*/
+	#nav ul{
+		float: left;
+		list-style-type: none;
+	}
+	/*logo*/
+	#nav img{
+		width: 200px;
+		height: 50px;
+		float: left;
+		margin-top: 20px;
+		margin-left: 40px;
+		margin-right: 50px;
+	}
+	#nav ul li{
+		display: inline-block;
+		margin: 30px auto;
+		width: 100px;
+		float: left;
+		/*文字居中*/
+		text-align: center;
+		font-size: 20px;
+	}
+	#nav ul li a{
+		color: #289428;
+		text-decoration: none;
+		margin-left: 10px;
+	}
+	/*导航栏下面的树的图片*/
+	#none{
+		width: 800px;
+		height: 200px;
+		background: url("images/1.jpg") no-repeat 0 -390px;
+	}
+	p{
+		width: 700px;
+		margin: 40px auto;
+		font-size: 18px;
+		color: #808080;
+	}
+	/*标题*/
+	h3{
+		color: #800080;
+	}
+	/*标题前面的紫色方块*/
+	#square{
+		float: left;
+		width: 18px;
+		height: 23px;
+		background-color: #800080;
+		margin: 2px 10px 2px 0px;
+	}
+	/*图片格式*/
+	.images{
+		width:800px;
+		height:500px;
+		margin: 30px 0px;
+	}
+	/*以下为高中图片中的小圆圈*/
+	/*所有小盒子定位为绝对定位*/
+	.box{
+		position: absolute;
+	}
+	/*设置所有小盒子边框*/
+	.box img{
+		border: 2px solid #ffffff;	
+	}
+	/*小盒子1定位，下同*/
+	.box1{
+		top: 80px;
+		left: 100px;
+	}
+	/*小盒子 2图片大小，下同*/
+	.box1 img{
+		width: 180px;
+		height: 180px;
+		border-radius: 90px;
+	}
+	.box2{
+		top: 220px;
+		left: 300px;
+	}
+	.box2 img{
+		width: 220px;
+		height: 220px;
+		border-radius: 110px;
+	}
+	.box3{
+		top: 120px;
+		left: 550px;
+	}
+	.box3 img{
+		width: 180px;
+		height: 180px;
+		border-radius: 90px;
+	}
+	/*分隔线*/
+	.line{
+		height: 1px;
+		width: 800px;
+		border-top: 1px solid #9a9a9a;
+	}
+	/*页脚*/
+	#footer{
+		text-align: center;
+		color: #333333;
+		font-size: 20px;
+		height: 60px;
+		margin-top: 30px;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="nav">
+			<img src="images/logo.png" alt="Logo" >
+			<ul>
+				<li><a href="#nav">首页</a></li>
+				<li><a href="#highschool">我的高中</a></li>
+				<li><a href="#hometown">我的家乡</a></li>
+				<li><a href="#university">我的大学</a></li>
+			</ul>
+		</div>
+		<div>
+			<div id="none"></div>
+			<div id="text">
+				<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。有一分热，发一分光。就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。
+				——鲁迅 《热风·随感录四十一》</p>
+			</div>
+		</div>
+		<div id="highschool">
+			<h3><div id="square"></div>我的高中</h3>
+			<div style="position : relative;"><img src="images/2.jpg" class="images">
+				<div class="box box1">
+					<img src="images/2-1.jpg">
+				</div>
+				<div class="box box2">
+					<img src="images/2-2.jpg">
+				</div>
+				<div class="box box3">
+					<img src="images/2-3.jpg">
+				</div>
+			</div>
+			<p>我的高中——邓州市第一高级中学。&nbsp;河南省省级示范性高中，前身是公元 1046 年范仲淹所开办的花洲书院。学校先后获得河南省教育系统先进集体、河南省首批素质教育示范学校、邓州市职工职业道德建设标兵单位等荣誉称号。
+			</p>
+		</div>
+		<div id="hometown">
+			<h3><div id="square"></div>我的家乡</h3>
+			<div><img src="images/3.jpg" class="images"></div>
+			<p>我的家乡——邓州市。&nbsp;地处河南省西南部，河南省辖县级市，由南阳市代管，为河南省政府确定为全省十个省直管县市之一。</p>
+
+		</div>
+		<div id="university">
+			<h3><div id="square"></div>我的大学</h3>
+			<div><img src="images/4.jpg" class="images"></div>
+			<p>我的大学——郑州工业应用技术学院（Zhengzhou University of Industry Technology）。&nbsp;
+			位于河南省新郑市，是一所以工学为主的民办本科高校，由集教育、医疗、医药、房地产、酒店等为一体的中原华信商贸集团投资开办。&nbsp;
+			希望我可以奋发向上，在这里补上曾经的遗憾。
+			</p>
+		</div>
+		<div class="line"></div>
+		<div id="footer">
+			© 王震烁  |wzs1900@outlook.com  |WebExam 2020.4.9 
+		</div>
+	</div>
+</body>
+</html>

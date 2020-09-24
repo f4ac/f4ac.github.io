@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>风车</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		/*容器相对浏览器定位*/
+		#container{
+			position: fixed;
+		}
+		/*设置草地大小*/
+		.bg img{
+			width: 100%;
+		}
+		/*设置风车扇叶在最上*/
+		.div img{
+			position: absolute;
+			z-index: 1;
+		}
+		/*第一个风车*/
+		.div1 img{
+			width: 20%;
+			left: 23.8%;
+			top: 17%;
+			animation: div1 6s infinite linear;
+		}
+		/*第二个风车*/
+		.div2 img{
+			width: 12%;
+			left: 45.2%;
+			top: 58%;
+			animation: div2 5s infinite linear;
+		}
+		/*第三个风车*/
+		.div3 img{
+			width: 17%;
+			left: 57.2%;
+			top: 41%;
+			animation: div3 8s infinite linear;
+		}
+		/*第一个风车*/
+		@keyframes div1 {
+			0%{transform:rotate(0deg)}
+			100%{transform:rotate(360deg)}
+		}
+		/*第二个风车*/
+		@keyframes div2{
+			0%{transform:rotate(0deg)}
+			100%{transform:rotate(360deg)}
+		}
+		/*第三个风车*/
+		@keyframes div3{
+			0%{transform:rotate(0deg)}
+			100%{transform:rotate(360deg)}
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="bg">
+			<div class="div div1"><img src="images/fengche.png"></div>
+			<div class="div div2"><img src="images/fengche.png"></div>
+			<div class="div div3"><img src="images/fengche.png"></div>
+			<img src="images/caodi.png">
+		</div>
+	</div>
+</body>
+</html>

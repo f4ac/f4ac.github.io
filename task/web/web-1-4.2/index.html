@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4月2日作业-明信片</title>
+	<style type="text/css">
+	body{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+	}
+	/*浏览器窗口定位*/
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	/*清除默认设置*/
+
+	#bg-div{
+		width: 100%;
+		height:100%;
+		position:absolute;
+		z-index: -1;
+	}
+	/*设置背景*/
+
+	#card{
+		width: 400px;
+		height: 240px;
+		background-color: #fff;
+		border-radius: 20px;
+		margin: 0  auto;
+		margin-top: 140px;
+	}
+	/*明信片格式*/
+
+	#card-head{
+		width: 200px;
+		height: 40px;
+		padding-top: 20px;
+		padding-left: 30px;
+	}
+	/*明信片头部logo*/
+
+	#card-text{
+		width: 210px;
+		height: 90px;
+		padding-top: 10px;
+		padding-left: 30px;
+		float: left;
+	}
+	/*明信片内部文字*/
+
+	#card-image{
+		width: 110px;
+		height: 110px;
+		border-radius: 55px;
+		float: right;
+		margin-top: 10px; 
+		margin-right: 30px;
+	}
+	/*明信片头像*/
+
+	#web-clear{
+		text-decoration: none;
+		color: black;
+	}
+	/*清除超链接格式*/
+
+	p{
+		line-height: 24px;
+	}
+	/*设置段落间距*/
+
+	</style>
+</head>
+<body>
+	<div>
+		<img id="bg-div" src="images/bg.jpg" alt="背景">
+	</div>
+	<div id="card">
+		<img id="card-head" src="images/logo.png" alt="智游教育">
+		<div id="card-text">
+			<p><strong>姓名</strong>：王震烁</p>
+			<p><strong>职位</strong>：学生</p>
+			<p><strong>手机号</strong>：176********</p>
+			<p><strong>QQ</strong>：1075214277</p>
+			<p><strong>邮箱</strong>：wzs1900@qq.com</p>
+			<p><a id="web-clear" href="http://f4ac.tk/"><strong>个人网站</strong>：f4ac.tk</a></p>
+		</div>
+		<img id="card-image" src="images/QQ.jpg" alt="头像">
+	</div>
+</body>
+</html>

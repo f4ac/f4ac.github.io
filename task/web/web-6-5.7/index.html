@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>打地鼠</title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	cursor:url(image/cursor.png),auto;
+}
+body:active{
+	cursor:url(image/cursor-down.png),auto;
+}
+body{
+	position: fixed;
+    height: 100%;
+    background-image: url('./image/bg.jpg');
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+section{
+    width: 760px;
+    height: 400px;
+    margin-top: 10%;
+}
+section div{
+    width: 160px;
+    height: 140px;
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+.hole{
+    display: inline-block;
+    width:160px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.mouse{
+
+   width:100px; 
+    z-index: 10;
+    position: absolute;
+    bottom:25px;
+    left: 30px;  
+}
+
+#count{
+    position: fixed;
+    z-index: 20;
+    top: 20%;
+    left: 0%;
+	width: 120px;
+	height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+    background-color: #00000060;
+    color: #000000;
+    border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-top-right-radius: 8px;
+	-moz-border-bottom-right-radius: 8px;
+	-o-border-top-right-radius: 8px;
+	-o-border-bottom-right-radius: 8px;
+	-ms-border-top-right-radius: 8px;
+	-ms-border-bottom-right-radius: 8px;
+}
+</style>
+</head>
+<body>
+    
+<section>
+    
+</section>
+
+<span id="count">得分:0</span>
+
+<audio src="audio/music.mp3" autoplay loop></audio>
+<div id="dazhong"></div>
+<script src="jquery.js"></script>
+<script>
+for(var i=1;i<13;i++){
+	$('section').append('<div></div>');
+}
+$('section div').append("<img class='hole' src='image/hole.png'  >");
+$('section div').append('<img class="mouse" src="image/mouse.png">');
+
+$('.mouse').hide();
+
+var num;
+var index;
+var object;
+setInterval(function(){
+    num=Math.ceil(Math.random()*2);
+    for(var i=1; i<=num ;i++){
+
+       index=Math.floor(Math.random()*12);
+      object=$('section div:nth-of-type('+(index+1)+') .mouse')
+   
+      object.slideDown();
+      object.delay(2000).slideUp();
+    }
+    
+},1000);
+
+var score=0;
+$('.mouse').click(function(){
+   
+    $(this).hide();
+    score+=10;
+    $(" <span id='count'>得分:"+score+"</span>").replaceAll('span');
+    $('#dazhong').append('<audio src="audio/dazhong.wav" autoplay ></audio>');
+    setTimeout(function(){
+        $('#dazhong').empty();
+    },1000);
+});
+    </script>
+</body>
+</html>

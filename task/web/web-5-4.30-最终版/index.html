@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打字练习</title>
+	<style type="text/css">
+	/*清除格式*/
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	/*背景颜色*/
+	body{
+		background-color: #000000;	
+	}
+		/*容器宽度，居中*/
+	#container{
+		position: relative;
+		width: 800px;
+		margin: 0 auto;
+	}
+	/*字母盒子*/
+	#letterBox{
+		width: 300px;
+		height: 300px;
+		margin: 120px auto;
+	}
+
+	/*灰白背景*/
+	#bgc{
+		position: absolute;
+		z-index: -1;
+		top: -50%;
+		left: 0%;
+		width: 800px;
+		height: 800px;
+		background-image: radial-gradient(#434343, #000000, #000000);
+	}
+
+	/*字母*/
+	#letter{
+		width: 300px;
+		margin: 0 auto;
+		padding: 30px 0px 0px 60px;
+		font-size: 250px;
+		color: #90ee90;
+
+		text-shadow:0 0 50px #000000;
+	 	-webkit-text-shadow:0 0 50px #000000;
+  		-moz-text-shadow:0 0 50px #000000;
+       	-o-text-shadow:0 0 50px #000000;
+        
+	}
+	/*提示信息*/
+	#prompt{
+		width: 600px;
+		text-align: center;
+		margin: 0 auto;
+		padding-top: 50px;
+		color: #545454;
+	}
+
+	/*错误时晃动，可连续使用*/
+	.error1{	
+		position: relative;
+		animation :ifError1 0.5s ease;
+	}
+	@keyframes ifError1
+	{
+		10% { left: -20px;}
+		20% { left: 20px;}
+		30% { left: -20px;}
+		40% { left: 20px;}
+		50% { left: -20px;}
+		60% { left: 20px;}
+		70% { left: -20px;}
+		80% { left: 20px;}
+		90% { left: -20px;}
+		100% { left: 0px;}
+	}
+	.error2{
+		position: relative;
+		animation :ifError2 0.5s ease;
+	}
+	@keyframes ifError2
+	{
+		10% { left: -20px;}
+		20% { left: 20px;}
+		30% { left: -20px;}
+		40% { left: 20px;}
+		50% { left: -20px;}
+		60% { left: 20px;}
+		70% { left: -20px;}
+		80% { left: 20px;}
+		90% { left: -20px;}
+		100% { left: 0px;}
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="letterBox">
+			<div id="bgc"></div>
+			<div id="letter"></div>
+		</div>
+		<div id="prompt">请在键盘上按下屏幕上显示的字母</div>
+	</div>
+	<script>
+	// 建立数组
+	var arr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+	var a = parseInt(Math.random()*24); 	//取0到23的随机数
+	document.getElementById("letter").innerHTML = arr[a];	//第一次输出字母
+	var t =0,f=0,l=0.0;		//t为正确次数，f为错误次数，l为正确率
+	var test = 0;			//重置animation动画
+
+	//获取键盘
+	document.onkeypress=function(ev){
+    	var oEvent = ev || event;   //处理兼容
+    	var ch = event.which || event.KeyCode;	//处理兼容
+    	if ( ch>=97 && ch<=122)
+    		ch-=32;		//小写转大写，使其同时支持大小写
+    	
+
+		if ( ch==(a+65) ){
+			letter.style.cssText = "color: #90ee90;";	//重置文字颜色
+			a = parseInt(Math.random()*24);		//取0到23的随机数
+			document.getElementById("letter").innerHTML = arr[a];
+			t++;
+		}
+		else{	
+			f++;
+			letter.style.cssText = "color: yellow;";	//字体颜色改为黄色
+
+			//输入错误晃动，第二次重置
+			if ( test == 1 )
+			{
+				letter.className = "error1";
+				test = 0;
+			}
+			else
+			{
+				letter.className = "error2";
+				test = 1;
+			}
+		}
+		l = t/(t+f)*100;
+		l = l.toFixed(2);
+		document.getElementById("prompt").innerHTML = "正确 "+t+" 个，错误 "+f+" 个，正确率 "+l+" %";
+    };
+	</script>
+</body>
+</html>

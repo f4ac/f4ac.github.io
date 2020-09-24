@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>钢琴</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	/*网页背景颜色*/
+	body{
+		background-color: #262626;
+	}
+	/*钢琴主体*/
+	#container{
+		margin: 150px auto;
+		background-color: #333333;
+		text-align: center;
+		width: 999px;
+		height: 440px;
+		border-radius: 10px;
+		box-shadow: 0 0 50px #ffffff;
+		position: relative;
+		padding: 50px 20px 20px 20px;
+		
+	}
+	/*图片的方式实在不会写，所以重新用css写了一个*/
+	/*白键*/
+	.wkey{
+		background-color: #fff;
+		width: 109px;
+		height: 440px;
+		float: left;
+	}
+	/*除了第九个以外全设置右边框*/
+	.wkey:not(.wkey9){
+		border-right: 2px solid #000000;
+	}
+	/*黑键*/
+	.bkey{
+		width: 54px;
+		height: 250px;
+		background-color: #000000;
+		position: relative;
+		left: -27px;
+	}
+	/*最后面的黑键*/
+	.bkey1{
+		width: 27px;
+		height: 250px;
+		background-color: #000000;
+		position: relative;
+		left: 109px;
+	}
+	/*每个颜色不一样*/
+	.wkey1:active{
+		background-image: linear-gradient(#e8439320, #e84393);
+	}
+	.wkey2:active{
+		background-image: linear-gradient(#d6303120, #d63031);
+	}
+	.wkey3:active{
+		background-image: linear-gradient(#e1705520, #e17055);
+	}
+	.wkey4:active{
+		background-image: linear-gradient(#fdcb6e20, #fdcb6e);
+	}
+	.wkey5:active{
+		background-image: linear-gradient(#6c5ce720, #6c5ce7);
+	}
+	.wkey6:active{
+		background-image: linear-gradient(#0984e320, #0984e3);
+	}
+	.wkey7:active{
+		background-image: linear-gradient(#00cec920, #00cec9);
+	}
+	.wkey8:active{
+		background-image: linear-gradient(#00b89420, #00b894);
+	}
+	.wkey9:active{
+		background-image: linear-gradient(#00000020, #00000080);
+	}
+	</style>
+</head>
+<body>
+	<div id="container" onclick="myFunction()">
+		<div class="wkey wkey1">
+		</div>
+		<div class="wkey wkey2">
+			<div class="bkey"></div>
+		</div>
+		<div class="wkey wkey3">
+			<div class="bkey"></div>
+		</div>
+		<div class="wkey wkey4">
+		</div>
+		<div class="wkey wkey5">
+			<div class="bkey"></div>
+		</div>
+		<div class="wkey wkey6">
+			<div class="bkey"></div>
+		</div>
+		<div class="wkey wkey7">
+			<div class="bkey"></div>
+		</div>
+		<div class="wkey wkey8">
+		</div>
+		<div class="wkey wkey9">
+			<div class="bkey">
+				<div class="bkey1"></div>
+			</div>
+		</div>
+ 	</div>
+ 	<script src="jquery.js"></script>
+ 	<script>
+	var x = document.createElement("AUDIO");
+ 	$(".wkey1").click(function(){
+		x.setAttribute("src","notes/1.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey2").click(function(){
+		x.setAttribute("src","notes/2.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey3").click(function(){
+		x.setAttribute("src","notes/3.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey4").click(function(){
+		x.setAttribute("src","notes/4.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey5").click(function(){
+		x.setAttribute("src","notes/5.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey6").click(function(){
+		x.setAttribute("src","notes/6.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey7").click(function(){
+		x.setAttribute("src","notes/7.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey8").click(function(){
+		x.setAttribute("src","notes/8.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	$(".wkey9").click(function(){
+		x.setAttribute("src","notes/9.oga");
+		x.setAttribute("autoplay", "autoplay");
+ 	});
+ 	</script>
+</body>
+</html>
