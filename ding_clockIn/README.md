@@ -2,7 +2,7 @@
 
 1. 打开手机设置, 点击 更多设置
 
-   ![img](images/clip_image002.jpg)
+   ![img](./images/clip_image002.jpg)
 
 2. 打开 无障碍
 
