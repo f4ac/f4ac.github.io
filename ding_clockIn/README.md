@@ -1,25 +1,32 @@
-小米手机设置无障碍方法
+钉钉返校打卡 
 
-1. 打开手机设置, 点击 更多设置
 
-   ![img](https://f4ac.tk/ding_clockIn/images/clip_image002.jpg)
 
-2. 打开 无障碍
+使用条件
 
-   ![img](https://f4ac.tk/ding_clockIn/images/clip_image004.jpg)
+- 软件开启 无障碍服务 ( 若担心隐私可关闭软件联网权限 )
 
-3. 点击 已下载的应用
+- 软件开启 悬浮窗权限
 
-   ![img](https://f4ac.tk/ding_clockIn/images/clip_image006.jpg)
+  > 注: 现仅用于钉钉已填写过的、打卡时不需更改的返校打卡, 若需更改请手动操作
 
-4. 点击 钉钉打卡
+不同手机具体开启步骤尝试百度搜索
 
-   ![img](https://f4ac.tk/ding_clockIn/images/clip_image008.jpg)
+小米手机用户可查看: [小米手机设置教程](https://f4ac.tk/ding_clockIn/mi.html)
 
-5. 确定开启 无障碍权限
+- 当前版本 1.0.1
+  - 功能: 开启以上权限后点击软件自动签到
+  - 下载链接: [1.0.1](https://wwe.lanzous.com/iIkNPl4kr8f)
 
-   ![img](https://f4ac.tk/ding_clockIn/images/clip_image010.jpg)
+下次更新添加功能: 自动定时打卡 ( 如果更新的话 )
 
-6. 打开后的样式
+- 由于定时操作涉及息屏解锁, 现提供四种解决方案
+  - 关闭锁屏密码
+  - 使用智能手环等解锁设备
+  - 使用 数字密码解锁 ( 数字加字母尚未验证可行性 )
+  - 使用图案解锁 ( 可能不会添加, 添加也只有 miui12.5, 没其他手机适配 \摊手 )
 
-   ![img](https://f4ac.tk/ding_clockIn/images/clip_image012.jpg)
+更新链接: [蓝奏云](https://wwe.lanzous.com/b0164fgra)密码:ddci
+
+软件问题联系: Q 1075214277
+
